@@ -7,26 +7,31 @@ h1,h2,h3,h4,h5,h6,p {
 label,
 input {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
 }
 
 input[type="submit"] {
     background-color: #018ADA;
     color: white;
     border: none;
+    margin-top: 5%;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     cursor: pointer;
 }
 #mycourseville-logo{
-    width:100%;
-    max-width:125px;
-    height:auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: 50px;
+    padding: 20px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 50px;
+    margin-bottom: 3%;
+    margin-top: 7.5%;
 }
 .login-form{
     display: block;
@@ -47,5 +52,11 @@ input[type="submit"] {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 80%;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+#login-form{
+    max-width:35%;
 }
