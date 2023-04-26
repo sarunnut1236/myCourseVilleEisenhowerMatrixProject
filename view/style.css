@@ -1,9 +1,9 @@
-form {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 5px;
+body {
+    font-family: 'Prompt', sans-serif;
 }
-
+h1,h2,h3,h4,h5,h6,p {
+    font-family: 'Prompt', sans-serif;
+}
 label,
 input {
     display: block;
@@ -22,5 +22,29 @@ input[type="submit"] {
     width:100%;
     max-width:125px;
     height:auto;
-    margin: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.login-form{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #f2f2f2;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
 }
