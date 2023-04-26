@@ -1,0 +1,1 @@
+view คือ frontend จ้า
