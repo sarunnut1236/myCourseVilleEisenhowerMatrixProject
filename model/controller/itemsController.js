@@ -10,6 +10,35 @@ const {
 
 const docClient = new DynamoDBClient({ regions: process.env.AWS_REGION });
 
+exports.addTask = async (req, res) => {
+  const params = {
+    TableName: process.env.aws_data_table_name,
+    Item: {...req.body},
+  }
+
+  try {
+    console.log("Made it here!");
+    const data = await docClient.send(new PutCommand(params));
+    console.log("Done");
+    res.send(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+exports.getAllData = async (req, res) => {
+  const params = {
+    TableName: process.env.aws_data_table_name,
+  };
+  try {
+    const data = await docClient.send(new ScanCommand(params));
+    res.send(data.Items);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+}
+
 exports.getGroupMembers = async (req, res) => {
   const params = {
     TableName: process.env.aws_group_members_table_name,

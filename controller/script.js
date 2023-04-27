@@ -5,6 +5,130 @@ const authorizeApplication = () => {
   window.location.href = `http://${backendIPAddress}/courseville/auth_app`;
 };
 
+var user;
+var userTasks; //main
+var userTaskFromDB; //temp
+var userTaskFromCV; //temp
+var foundUserTaskFromDB;
+
+const addUserTaskToDB = async () => {
+  //apparently you can overwrite things in dynamoDB
+  const options = {
+    method: "POST",
+    credentials : "include",
+    headers: {
+      "Content-Type" : "application/json",
+    },
+    body: JSON.stringify({
+      "id": user.id,
+      "task": userTasks,
+    })
+  };
+  await fetch(`http://${backendIPAddress}/items/addUserTasks`, options)
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+}
+
+const updateUserTaskWithCV = async () => {
+  //call when want to update new task from cv into userTasks
+  await getUserTaskFromCV();
+  var latestCreateDate = 0;
+  for (var i=0;i<userTasks.length;i++) {
+    if (userTasks[i].created > latestCreateDate) {
+      latestCreateDate = userTasks[i].created;
+    }
+  }
+
+  for (var i=0;i<userTaskFromCV.length;i++) {
+    if (userTaskFromCV[i].created > latestCreateDate) {
+      var tmp = userTaskFromCV[i];
+      tmp.importance = 0;
+      userTasks.push(tmp);
+    }
+  }
+}
+
+const getUserTask = async () => {
+  foundUserTaskFromDB = false;
+  getUserTaskFromDB();
+  if (foundUserTaskFromDB) {
+    userTasks = userTaskFromCV;
+  } else {
+    userTasks = [];
+    updateUserTaskWithCV();
+  }
+}
+
+const getUserTaskFromDB = async () => {
+  const options = {
+    method: "GET",
+    credentials: "include",
+  };
+  await fetch(
+    `http://${backendIPAddress}/items/data`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      for (var i=0; i<data.length; i++) {
+        if (data[i].id == user.id) {
+          userTaskFromDB = data[i].task;
+          foundUserTaskFromDB = true;
+          break;
+        }
+      }
+    },)
+    .catch((error) => console.error(error));
+}
+
+const getUserTaskFromCV = async() => {
+  var coursesThisYear = [];
+  const options = {
+    method: "GET",
+    credentials: "include",
+  };
+  await fetch(
+    `http://${backendIPAddress}/courseville/get_courses`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => data.data.student)
+    .then((courses) => {
+      console.log(courses);
+      for (var i=0; i<courses.length; i++) {
+        if (courses[i].year == "2022" && courses[i].semester == 2) {
+          coursesThisYear.push(courses[i]);
+        }
+      }
+    })
+    .catch((error) => console.error(error));
+  console.log(coursesThisYear);
+  var assignments = [];
+  for (let i=0;i<coursesThisYear.length;i++) {
+    // const options = {
+    //   method: "GET",
+    //   credentials: "include",
+    // };
+    await fetch(
+      `http://${backendIPAddress}/courseville/get_course_assignments/${coursesThisYear[i].cv_cid}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => data.data)
+      .then((dd) => {
+        console.log(dd);
+        for (let i=0;i<dd.length;i++) {
+          // console.log(dd[i].duetime*1000, Date.now(), parseInt(dd[i].duetime)*1000 > Date.now());
+          if (parseInt(dd[i].duetime)*1000 > Date.now()) {
+            assignments.push(dd[i]);
+          }
+        }
+      })
+      .catch((error) => console.error(error));
+  }
+  userTaskFromCV = assignments;
+}
+
 // TODO #3.1: Change group number
 const getGroupNumber = () => {
   return 99;
@@ -22,6 +146,7 @@ const getUserProfile = async () => {
   )
     .then((response) => response.json())
     .then((data) => {
+      user = data.user;
       console.log(data.user);
       document.getElementById(
         "eng-name-info"
@@ -60,53 +185,6 @@ const getCompEngEssCid = async () => {
     .catch((error) => console.error(error));
 };
 
-const get_all_assignments_doable = async() => {
-  var coursesThisYear = [];
-  const options = {
-    method: "GET",
-    credentials: "include",
-  };
-  await fetch(
-    `http://${backendIPAddress}/courseville/get_courses`,
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => data.data.student)
-    .then((courses) => {
-      console.log(courses);
-      for (var i=0; i<courses.length; i++) {
-        if (courses[i].year == "2022" && courses[i].semester == 2) {
-          coursesThisYear.push(courses[i]);
-        }
-      }
-    })
-    .catch((error) => console.error(error));
-  console.log(coursesThisYear);
-  var assignments = [];
-  for (let i=0;i<coursesThisYear.length;i++) {
-    // const options = {
-    //   method: "GET",
-    //   credentials: "include",
-    // };
-    await fetch(
-      `http://${backendIPAddress}/courseville/get_course_assignments/${coursesThisYear[i].cv_cid}`,
-      options
-    )
-      .then((response) => response.json())
-      .then((data) => data.data)
-      .then((dd) => {
-        console.log(dd);
-        for (let i=0;i<dd.length;i++) {
-          console.log(dd[i].duetime*1000, Date.now(), parseInt(dd[i].duetime)*1000 > Date.now());
-          if (parseInt(dd[i].duetime)*1000 > Date.now()) {
-            assignments.push(dd[i]);
-          }
-        }
-      })
-      .catch((error) => console.error(error));
-  }
-  console.log(assignments);
-}
 
 
 // TODO #3.5: Send Get Course Assignments ("GET") request with cv_cid to backend server
@@ -147,3 +225,5 @@ const createCompEngEssAssignmentTable = async () => {
 const logout = async () => {
   window.location.href = `http://${backendIPAddress}/courseville/logout`;
 };
+
+document.getElementById("group-id").innerHTML = getGroupNumber();
