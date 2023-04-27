@@ -9,30 +9,42 @@
     <link rel="stylesheet" href="style-page.css" />
   </head>
   <body>
-    <header>Task Prioritization Chart</header>
-    <div id="sub-header">powered by MyCourseVille</div>
-    <div id="profile">
-      <img src="#" alt="profilepic" />
-      <p>Welcome! นายอัศวิน สังข์สุวรรณ</p>
-      <p>Faculty of Engineering Yr.1 Semester1</p>
-    </div>
+    <header>
+      <div id="header-text">
+        <p id="main-header">Tasks Prioritization Chart</p>
+        <p id="sub-header">powered by MyCourseVille</p>
+      </div>
 
+      <div id="profile">
+        <img src="./src/profiletest.png" alt="profilepic" />
+        <p>Welcome! นายอัศวิน สังข์สุวรรณ</p>
+        <p id="info">Faculty of Engineering Yr.1 Semester1</p>
+      </div>
+    </header>
     <div id="Eisenhower-Matrix">
-      <ul>
-         <li>1</li>
-         <li>2</li>
-         <li>3</li>
-         <li>4</li>
-     </ul>
-       <div id="detail"">
-         <p>p1</p>
-         <p>p2</p>
-         <p>p3</p>
-         <p>p4</p>
+      <div id="grid">
+         <div class="boxtest" id="box1">
+          <p id="label-urgent">Urgent</p>
+          <p >hello world</p>
+
+          <p id="label-important">Important</p>
+        </div>
+        <div class="boxtest" id="box2">
+          <p>hello world</p>
+          <p id="label-L-urgent">Less Urgent</p>
+        </div>
+         <div class="boxtest" id="box3">
+          <p>hello world</p>
+          <p id="label-L-important">Less Important</p>
+
+        </div>
+         <div class="boxtest" id="box4"><p>hello world</p></div>
+      </div>
+
      </div>
    </div>
 
-  <div id="tasks">
+  <!-- <div id="tasks">
     <p>Tasks</p>
     <ul>
       <li>
@@ -73,8 +85,7 @@
       <li>เร่งด่วนหมายถึงงานที่ต้องส่งภายใน 3 วัน</li>
       <li>Task ที่ผู้ใช้ยังไม่ระบุความสำคัญจะยังไม่แสดงบน Eisenhower Matrix</li>
     </ul>
-  </div>
-
-
+  </div>-->
   </body>
+
 </html>
