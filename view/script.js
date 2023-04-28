@@ -14,8 +14,8 @@ var foundUserTaskFromDB;
 const updateUrgency = async () => {
   var threeDay = 3*86400000; // how much is 3 day?
   for (var i=0;i<userTasks.length;i++) {
-    if (Date.now() - userTasks[i].duetime*1000 < threeDay) {
-      usertasks[i].urgency = true;
+    if (Math.abs(Date.now() - userTasks[i].duetime*1000) < threeDay) {
+      userTasks[i].urgency = true;
     } else {
       userTasks[i].urgency = false;
     }
