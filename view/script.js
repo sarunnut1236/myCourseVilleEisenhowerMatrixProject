@@ -14,6 +14,7 @@ var foundUserTaskFromDB;
 const onLoad = async () => {
   await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
+  getUserTask();
 }
 
 const clearUndoableTask = async () => {
