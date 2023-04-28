@@ -14,7 +14,7 @@ input {
     margin-bottom: 1%;
 }
 
-input[type="submit"] {
+#login-button {
     background-color: #018ADA;
     color: white;
     border: none;
@@ -73,4 +73,7 @@ input[type="submit"] {
     display: block;
     margin-top: 200px;
     margin-bottom: auto;
+}
+#bg{
+    display:grid;
 }
