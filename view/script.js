@@ -11,6 +11,17 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
+const updateUrgency = async () => {
+  var threeDay = 3*86400000; // how much is 3 day?
+  for (var i=0;i<userTasks.length;i++) {
+    if (Date.now() - usertasks[i].duetime*1000 < threeDay) {
+      usertasks[i].urgency = true;
+    } else {
+      userTasks[i].urgency = false;
+    }
+  }
+}
+
 const onLoad = async () => {
   await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
