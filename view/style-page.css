@@ -114,76 +114,50 @@ body {
   left: -142px;
   color: rgb(76, 77, 77);
 }
-#tasks {
-  position: relative;
+#main-table {
+  padding: 0;
+  width: 100%;
+  background: #eee;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  overflow: hidden;
 }
-#tasks ul {
-  padding: 0px;
+#main-table > thead {
+  background: #555;
+  color: white;
 }
-#tasks li {
-  list-style: none;
-  border: 2px solid black;
-  border-radius: 10px;
-  width: 600px;
-  height: 170px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-evenly;
-}
-#tasks li p {
-  margin: 0px;
-}
-#tasks li .subject {
-  background-color: aquamarine;
-  flex-grow: 1;
-  text-align: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  font-weight: bold;
-}
-#tasks li .urgent {
-  background-color: beige;
-  flex-grow: 2;
-  display: flex;
-  flex-flow: column wrap;
-}
-#tasks li .important {
-  background-color: brown;
-  flex-grow: 1;
-  display: flex;
-  flex-flow: column wrap;
-}
-#tasks li .urgent .due-date {
-  background-color: chartreuse;
-  flex-grow: 1;
-  text-align: center;
-}
-#tasks li .urgent .urgent-label {
-  background-color: rgb(165, 96, 230);
-  flex-grow: 1;
-  text-align: center;
-}
-#tasks li .importance {
-  background-color: cadetblue;
-  flex-grow: 1;
-  text-align: center;
-}
-#tasks li .important-label {
-  background-color: blanchedalmond;
-  flex-grow: 1;
-  text-align: center;
-}
-.urgent p,
-.important p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+#main-table > thead > tr > th {
   font-weight: lighter;
-  font-size: 20px;
+  text-align: left;
+}
+#main-table td,
+#main-table th {
+  padding: 5px 10px;
+  font-weight: lighter;
+}
+#tasks-to-add,
+#important-to-add {
+  font-family: "Mitr", sans-serif;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+.delete-row,
+#add-newrow {
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  background: white;
+  width: 60px;
+  cursor: pointer;
+  font-family: "Mitr", sans-serif;
+}
+
+.delete-row:hover,
+#add-newrow:hover {
+  background: rgb(255, 200, 105);
+  color: white;
 }
 .text-header {
   font-size: 35px;
@@ -201,7 +175,8 @@ body {
   padding-left: 40px;
   padding-right: 10px;
   padding-top: 20px;
-  border: 2px solid black;
+  border: 1px solid black;
+  border-radius: 5px;
   width: 500px;
   height: 300px;
 }

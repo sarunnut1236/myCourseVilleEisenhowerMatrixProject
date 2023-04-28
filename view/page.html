@@ -47,52 +47,29 @@
    <div id="app-container">
       <div id="tasks">
         <p class="text-header">Tasks</p>
-        <ul>
-          <li>
-            <div class="subject"><p>comprog</p></div>
-            <div class="urgent">
-              <p class="due-date">ภายใน 3 วัน</p>
-              <p class="urgent-label">เร่งด่วน</p>
-            </div>
-            <div class="important">
-              <p class="importance">ความสำคัญ</p>
-              <p class="important-label">สำคัญ</p>
-            </div>
-          </li>
-          <li>
-            <div class="subject"><p>comprog</p></div>
-            <div class="urgent">
-              <p class="due-date">ภายใน 3 วัน</p>
-              <p class="urgent-label">เร่งด่วน</p>
-            </div>
-            <div class="important">
-              <p class="importance">ความสำคัญ</p>
-              <p class="important-label">สำคัญ</p>
-            </div>
-          </li>
-          <li>
-            <div class="subject"><p>comprog</p></div>
-            <div class="urgent">
-              <p class="due-date">ภายใน 3 วัน</p>
-              <p class="urgent-label">เร่งด่วน</p>
-            </div>
-            <div class="important">
-              <p class="importance">ความสำคัญ</p>
-              <p class="important-label">สำคัญ</p>
-            </div>
-          </li>
-          <li>
-            <div class="subject"><p>comprog</p></div>
-            <div class="urgent">
-              <p class="due-date">ภายใน 3 วัน</p>
-              <p class="urgent-label">เร่งด่วน</p>
-            </div>
-            <div class="important">
-              <p class="importance">ความสำคัญ</p>
-              <p class="important-label">สำคัญ</p>
-            </div>
-          </li>
-        </ul>
+        <table id="main-table">
+          <thead>
+            <tr>
+              <th>ชื่อ tasks</th>
+              <th>ความสำคัญ</th>
+              <th>ดำเนินการ</th>
+            </tr>
+          </thead>
+
+
+
+          <tr>
+            <td>Comprog</td>
+            <td>
+              <select name="select-important" id="important-to-add">
+                <option value="0"></option>
+                <option value="1">สำคัญ</option>
+                <option value="2">ไม่สำคัญ</option>
+              </select>
+            <td><button class="delete-row">อัปเดต</button></td>
+          </tr>
+
+        </table>
       </div>
       <div id="about-us">
         <p class="text-header" >About us</p>
