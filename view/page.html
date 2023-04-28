@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <script src="script.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="style-page.css" />
   </head>
-  <body>
+  <body onload="onLoad()">
     <header>
       <div id="header-text">
         <p id="main-header">Tasks Prioritization Chart</p>
@@ -17,7 +17,7 @@
 
       <div id="profile">
         <img src="./src/profiletest.png" alt="profilepic" />
-        <p>Welcome! นายอัศวิน สังข์สุวรรณ</p>
+        <p>Welcome! <span id="username"></span></p>
         <p id="info">Faculty of Engineering Yr.1 Semester1</p>
       </div>
     </header>

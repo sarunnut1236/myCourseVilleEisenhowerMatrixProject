@@ -11,6 +11,11 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
+function onLoad() {
+  getUserProfile();
+  document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
+}
+
 const clearUndoableTask = async () => {
   var newUserTasks = [];
   for (var i=0;i<userTasks.length;i++) {
@@ -60,12 +65,12 @@ const updateUserTaskWithCV = async () => {
 
 const getUserTask = async () => {
   foundUserTaskFromDB = false;
-  getUserTaskFromDB();
+  await getUserTaskFromDB();
   if (foundUserTaskFromDB) {
     userTasks = userTaskFromCV;
   } else {
     userTasks = [];
-    updateUserTaskWithCV();
+    await updateUserTaskWithCV();
   }
 }
 
