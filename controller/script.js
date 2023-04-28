@@ -11,6 +11,16 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
+const clearUndoableTask = async () => {
+  var newUserTasks = [];
+  for (var i=0;i<userTasks.length;i++) {
+    if (userTasks[i].duetime*1000 > Date.now()) {
+      newUserTasks.push(userTasks[i]);
+    }
+  }
+  userTasks = newUserTasks;
+}
+
 const addUserTaskToDB = async () => {
   //apparently you can overwrite things in dynamoDB
   const options = {
