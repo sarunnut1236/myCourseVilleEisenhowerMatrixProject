@@ -4,6 +4,10 @@ body {
 h1,h2,h3,h4,h5,h6,p {
     font-family: 'Prompt', sans-serif;
 }
+h2{
+    font-size: 30px;
+    font-weight: 500;
+}
 label,
 input {
     display: block;
@@ -24,13 +28,12 @@ input[type="submit"] {
 }
 #mycourseville-logo{
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     max-width: 450px;
     height: 50px;
-    padding: 20px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
     margin-top: 7.5%;
 }
 .login-form{
@@ -46,17 +49,28 @@ input[type="submit"] {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s
+    transition: border-color .15s;
+    max-width: 100px;
 }
 .center{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
 }
 .mb-20{
     margin-bottom: 20px;
 }
 #login-form{
-    max-width:35%;
+    max-width:50%;
+}
+.width100{
+    width: 100%;
+}
+.width75{
+    width: 75%;
+}
+.vertical-center{
+    display: block;
+    margin-top: 200px;
+    margin-bottom: auto;
 }
