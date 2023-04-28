@@ -26,7 +26,8 @@ const onLoad = async () => {
   await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
   await getUserTask();
-  updateUrgency();
+  await clearUndoableTask();
+  await updateUrgency();
 }
 
 const clearUndoableTask = async () => {
