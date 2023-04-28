@@ -3,6 +3,7 @@ body {
   font-family: "Mitr", sans-serif;
   margin: 0px;
   padding: 0px;
+  color: #030303;
 }
 
 #main-header {
@@ -183,4 +184,9 @@ body {
 #about-us li {
   font-weight: lighter;
   font-size: 20px;
+}
+#mycourseville-logo{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
 }

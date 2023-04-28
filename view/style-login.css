@@ -14,7 +14,7 @@ input {
     margin-bottom: 1%;
 }
 
-input[type="submit"] {
+#login-button {
     background-color: #018ADA;
     color: white;
     border: none;
