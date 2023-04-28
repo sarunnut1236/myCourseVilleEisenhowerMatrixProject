@@ -83,14 +83,14 @@ body {
   position: absolute;
   top: -80px;
   left: 95px;
-  color: aqua;
+  color: rgb(76, 77, 77);
 }
 #label-L-urgent {
   font-size: 30px;
   position: absolute;
   top: -80px;
   left: 65px;
-  color: aqua;
+  color: rgb(76, 77, 77);
 }
 #label-important {
   font-size: 30px;
@@ -98,7 +98,7 @@ body {
   position: absolute;
   top: 90px;
   left: -105px;
-  color: aqua;
+  color: rgb(76, 77, 77);
 }
 #label-L-important {
   font-size: 30px;
@@ -106,5 +106,85 @@ body {
   position: absolute;
   top: 90px;
   left: -142px;
-  color: aqua;
+  color: rgb(76, 77, 77);
+}
+#tasks {
+  position: relative;
+}
+#tasks ul {
+  padding: 0px;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+#tasks li {
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 600px;
+  height: 170px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#tasks li p {
+  margin: 0px;
+}
+#tasks li .subject {
+  background-color: aquamarine;
+  flex-grow: 1;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+#tasks li .urgent {
+  background-color: beige;
+  flex-grow: 2;
+  display: flex;
+  flex-flow: column wrap;
+}
+#tasks li .important {
+  background-color: brown;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column wrap;
+}
+#tasks li .urgent .due-date {
+  background-color: chartreuse;
+  flex-grow: 1;
+  text-align: center;
+}
+#tasks li .urgent .urgent-label {
+  background-color: rgb(165, 96, 230);
+  flex-grow: 1;
+  text-align: center;
+}
+#tasks li .importance {
+  background-color: cadetblue;
+  flex-grow: 1;
+  text-align: center;
+}
+#tasks li .important-label {
+  background-color: blanchedalmond;
+  flex-grow: 1;
+  text-align: center;
+}
+.urgent p,
+.important p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: lighter;
+  font-size: 20px;
+}
+#tasks-header {
+  font-size: 35px;
+  position: absolute;
+  left: 110px;
+  margin: 0;
 }
