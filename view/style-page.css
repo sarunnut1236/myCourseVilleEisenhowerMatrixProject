@@ -20,28 +20,27 @@ body {
   top: 5%;
 }
 #profile {
-  display: block;
-  margin-top: 1%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2%;
-  width: 50%;
-  height: 100%;
-  position:relative;
+  display:flow-root;
+  margin-top: 30px;
+  padding: 1%;
+  max-width: 75%;
   border: 1px solid black;
 }
-#profile p {
-  margin: 0px;
-  position: relative;
-  left: 33%;
-  top: 60px;
-  font-size: 20px;
+#profile h2 {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 2%;
+  font-size:medium;
   font-weight: lighter;
 }
 
 #profile img {
-  position: absolute;
-  width: 15%;
+  display:table-column;
+  max-width: 15%;
+  height: 5%;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #grid {
@@ -199,4 +198,7 @@ body {
 }
 .block{
   display: block;
+}
+.grid{
+  display: grid;
 }
