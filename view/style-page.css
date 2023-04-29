@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap");
 body {
   font-family: "Mitr", sans-serif;
-  margin: 0px;
-  padding: 0px;
   color: #030303;
 }
 
@@ -18,17 +16,18 @@ body {
   position: absolute;
   margin: 0px;
   padding: 0px;
-  right: 10px;
-  top: 2px;
+  right: 2.5%;
+  top: 5%;
 }
 #profile {
-  margin: 0px;
-  padding: 0px;
-  width: 800px;
-  height: 200px;
-  position: relative;
-  left: 350px;
-  top: 20px;
+  display: block;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  width: 50%;
+  height: 100%;
+  position:relative;
   border: 1px solid black;
 }
 #profile p {
@@ -41,10 +40,8 @@ body {
 }
 
 #profile img {
-  top: 20px;
-  left: 20px;
   position: absolute;
-  width: 150px;
+  width: 15%;
 }
 
 #grid {
@@ -198,5 +195,8 @@ body {
   margin-right: auto;
 }
 #introduction{
-  margin-top: 200px;
+  margin-top: 100px;
+}
+.block{
+  display: block;
 }
