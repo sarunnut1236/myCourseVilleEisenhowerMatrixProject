@@ -190,3 +190,13 @@ body {
   margin-right: auto;
   max-width: 300px;
 }
+.inline-block{
+  display: inline-block;
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+#introduction{
+  margin-top: 200px;
+}
