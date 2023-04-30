@@ -11,9 +11,23 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
-function onLoad() {
-  getUserProfile();
+const updateUrgency = async () => {
+  var threeDay = 3*86400000; // how much is 3 day?
+  for (var i=0;i<userTasks.length;i++) {
+    if (Math.abs(Date.now() - userTasks[i].duetime*1000) < threeDay) {
+      userTasks[i].urgency = true;
+    } else {
+      userTasks[i].urgency = false;
+    }
+  }
+}
+
+const onLoad = async () => {
+  await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
+  await getUserTask();
+  await clearUndoableTask();
+  await updateUrgency();
 }
 
 const clearUndoableTask = async () => {
@@ -67,7 +81,9 @@ const getUserTask = async () => {
   foundUserTaskFromDB = false;
   await getUserTaskFromDB();
   if (foundUserTaskFromDB) {
-    userTasks = userTaskFromCV;
+    userTasks = userTaskFromDB;
+    await updateUserTaskWithCV();
+    await clearUndoableTask();
   } else {
     userTasks = [];
     await updateUserTaskWithCV();
@@ -163,12 +179,6 @@ const getUserProfile = async () => {
     .then((data) => {
       user = data.user;
       console.log(data.user);
-      document.getElementById(
-        "eng-name-info"
-      ).innerHTML = `${data.user.title_en} ${data.user.firstname_en} ${data.user.lastname_en}`;
-      document.getElementById(
-        "thai-name-info"
-      ).innerHTML = `${data.user.title_th} ${data.user.firstname_th} ${data.user.lastname_th}`;
     })
     .catch((error) => console.error(error));
 };
@@ -241,4 +251,4 @@ const logout = async () => {
   window.location.href = `http://${backendIPAddress}/courseville/logout`;
 };
 
-document.getElementById("group-id").innerHTML = getGroupNumber();
+// document.getElementById("group-id").innerHTML = getGroupNumber();
