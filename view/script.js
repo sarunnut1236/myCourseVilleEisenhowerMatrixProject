@@ -12,13 +12,14 @@ var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
 function updateImportance(itemid) {
-  var importance = document.getElementById(`${itemid}`);
+  var importance = document.getElementById(`${itemid}`).value;
   for (var i=0;i<userTasks.length;i++) {
     if (userTasks[i].itemid == itemid) {
       userTasks[i].importance = importance;
       break;
     }
   }
+  showTasks();
 }
 
 function showTasks() {
@@ -47,7 +48,7 @@ function showTasks() {
     `;
   }
   for (var i=0;i<userTasks.length;i++) {
-    document.getElementById(`${userTasks[i].itemid}`).value = userTasks[i].importance;
+    document.getElementById(`${userTasks[i].itemid}`).value = `${userTasks[i].importance}`;
   }
   var topLeft = document.getElementById("box1");
   var topRight = document.getElementById("box2");
