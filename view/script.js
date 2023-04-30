@@ -114,6 +114,7 @@ const onLoad = async () => {
   await getUserTask();
   await clearUndoableTask();
   await updateUrgency();
+  showTasks();
 }
 
 const clearUndoableTask = async () => {
