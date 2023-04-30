@@ -11,6 +11,37 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
+function updateImportance(itemid) {
+  var importance = document.getElementById(`${itemid}`);
+  for (var i=0;i<userTasks.length;i++) {
+    if (userTasks[i].itemid == itemid) {
+      userTasks[i].importance = importance;
+      break;
+    }
+  }
+}
+
+function showTasks() {
+  var mainTable = document.getElementById("main-table");
+  for (var i=0;i<userTasks.length;i++) {
+    mainTable.innerHTML += `
+      <tr>
+      <td>${userTasks[i].title}</td>
+      <td>
+        <select name="select-important" class="important-to-add" id="${userTasks[i].itemid}">
+          <option value="0"></option>
+          <option value="1">สำคัญ</option>
+          <option value="2">ไม่สำคัญ</option>
+        </select>
+      <td><button class="delete-row" onclick=updateImportance(${userTasks[i].itemid})>อัปเดต</button></td>
+      </tr>
+    `;
+  }
+  for (var i=0;i<userTasks.length;i++) {
+    document.getElementById(`${userTasks[i].itemid}`).value = userTasks[i].importance;
+  }
+}
+
 const updateUrgency = async () => {
   var threeDay = 3*86400000; // how much is 3 day?
   for (var i=0;i<userTasks.length;i++) {
