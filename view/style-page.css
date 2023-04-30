@@ -20,7 +20,7 @@ body {
   top: 5%;
 }
 #profile {
-  display:flow-root;
+  display: flow-root;
   margin-top: 30px;
   padding: 1%;
   max-width: 75%;
@@ -30,17 +30,29 @@ body {
   display: inline-block;
   vertical-align: top;
   margin-left: 2%;
-  font-size:medium;
+  font-size: medium;
   font-weight: lighter;
 }
 
 #profile img {
-  display:table-column;
+  display: table-column;
   max-width: 15%;
   height: 5%;
   vertical-align: middle;
   margin-top: auto;
   margin-bottom: auto;
+}
+#profile button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  background: white;
+  width: 70px;
+  cursor: pointer;
+  font-family: "Mitr", sans-serif;
 }
 
 #grid {
@@ -181,24 +193,24 @@ body {
   font-weight: lighter;
   font-size: 20px;
 }
-#mycourseville-logo{
+#mycourseville-logo {
   margin-left: auto;
   margin-right: auto;
   max-width: 300px;
 }
-.inline-block{
+.inline-block {
   display: inline-block;
 }
-.center{
+.center {
   margin-left: auto;
   margin-right: auto;
 }
-#introduction{
+#introduction {
   margin-top: 100px;
 }
-.block{
+.block {
   display: block;
 }
-.grid{
+.grid {
   display: grid;
 }
