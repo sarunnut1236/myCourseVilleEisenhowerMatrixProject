@@ -23,6 +23,15 @@ function updateImportance(itemid) {
 
 function showTasks() {
   var mainTable = document.getElementById("main-table");
+  mainTable.innerHTML = `
+    <thead>
+    <tr>
+      <th>ชื่อ tasks</th>
+      <th>ความสำคัญ</th>
+      <th>ดำเนินการ</th>
+    </tr>
+    </thead>
+  `;
   for (var i=0;i<userTasks.length;i++) {
     mainTable.innerHTML += `
       <tr>
@@ -39,6 +48,52 @@ function showTasks() {
   }
   for (var i=0;i<userTasks.length;i++) {
     document.getElementById(`${userTasks[i].itemid}`).value = userTasks[i].importance;
+  }
+  var topLeft = document.getElementById("box1");
+  var topRight = document.getElementById("box2");
+  var botLeft = document.getElementById("box3");
+  var botRight = document.getElementById("box4");
+
+  topLeft.innerHTML = `
+    <p id="label-urgent">Urgent</p>
+    <p id="label-important">Important</p>
+  `;
+
+  topRight.innerHTML = `
+    <p id="label-L-urgent">Less Urgent</p>
+  `;
+
+  botLeft.innerHTML = `
+    <p id="label-L-important">Less Important</p>
+  `;
+
+  botRight.innerHTML = ``;
+
+  for (var i=0;i<userTasks.length;i++) {
+    var importance = userTasks[i].importance;
+    var urgent = userTasks[i].urgency;
+    console.log(importance, urgent);
+    if (importance == "0") {
+      continue;
+    }
+    if (importance == "1") {
+      //สำคัญ
+      if (urgent) {
+        console.log(1);
+        topLeft.innerHTML += `<p>${userTasks[i].title}</p>`
+      } else {
+        console.log(2);
+        topRight.innerHTML += `<p>${userTasks[i].title}</p>`
+      }
+    } else {
+      if (urgent) {
+        console.log(3);
+        botLeft.innerHTML += `<p>${userTasks[i].title}</p>`
+      } else {
+        console.log(4);
+        botRight.innerHTML += `<p>${userTasks[i].title}</p>`
+      }
+    }
   }
 }
 
