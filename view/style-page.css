@@ -97,6 +97,9 @@ body {
 #box4 {
   background-color: burlywood;
 }
+.box-data {
+  padding: 5px;
+}
 #label-urgent {
   font-size: 30px;
   position: absolute;
