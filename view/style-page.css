@@ -42,10 +42,14 @@ body {
   margin-top: auto;
   margin-bottom: auto;
 }
+#profile #metadata {
+  position: relative;
+}
 #profile button {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: -11px;
+
+  right: 0px;
   border-radius: 8px;
   padding: 5px 10px;
   border: 1px solid #aaa;
