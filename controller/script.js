@@ -11,10 +11,109 @@ var userTaskFromDB; //temp
 var userTaskFromCV; //temp
 var foundUserTaskFromDB;
 
+function updateImportance(itemid) {
+  var importance = document.getElementById(`${itemid}`);
+  for (var i=0;i<userTasks.length;i++) {
+    if (userTasks[i].itemid == itemid) {
+      userTasks[i].importance = importance;
+      break;
+    }
+  }
+}
+
+function showTasks() {
+  var mainTable = document.getElementById("main-table");
+  mainTable.innerHTML = `
+    <thead>
+    <tr>
+      <th>ชื่อ tasks</th>
+      <th>ความสำคัญ</th>
+      <th>ดำเนินการ</th>
+    </tr>
+    </thead>
+  `;
+  for (var i=0;i<userTasks.length;i++) {
+    mainTable.innerHTML += `
+      <tr>
+      <td>${userTasks[i].title}</td>
+      <td>
+        <select name="select-important" class="important-to-add" id="${userTasks[i].itemid}">
+          <option value="0"></option>
+          <option value="1">สำคัญ</option>
+          <option value="2">ไม่สำคัญ</option>
+        </select>
+      <td><button class="delete-row" onclick=updateImportance(${userTasks[i].itemid})>อัปเดต</button></td>
+      </tr>
+    `;
+  }
+  for (var i=0;i<userTasks.length;i++) {
+    document.getElementById(`${userTasks[i].itemid}`).value = userTasks[i].importance;
+  }
+  var topLeft = document.getElementById("box1");
+  var topRight = document.getElementById("box2");
+  var botLeft = document.getElementById("box3");
+  var botRight = document.getElementById("box4");
+
+  topLeft.innerHTML = `
+    <p id="label-urgent">Urgent</p>
+    <p id="label-important">Important</p>
+  `;
+
+  topRight.innerHTML = `
+    <p id="label-L-urgent">Less Urgent</p>
+  `;
+
+  botLeft.innerHTML = `
+    <p id="label-L-important">Less Important</p>
+  `;
+
+  botRight.innerHTML = ``;
+
+  for (var i=0;i<userTasks.length;i++) {
+    var importance = userTasks[i].importance;
+    var urgent = userTasks[i].urgency;
+    console.log(importance, urgent);
+    if (importance == "0") {
+      continue;
+    }
+    if (importance == "1") {
+      //สำคัญ
+      if (urgent) {
+        console.log(1);
+        topLeft.innerHTML += `<p>${userTasks[i].title}</p>`
+      } else {
+        console.log(2);
+        topRight.innerHTML += `<p>${userTasks[i].title}</p>`
+      }
+    } else {
+      if (urgent) {
+        console.log(3);
+        botLeft.innerHTML += `<p>${userTasks[i].title}</p>`
+      } else {
+        console.log(4);
+        botRight.innerHTML += `<p>${userTasks[i].title}</p>`
+      }
+    }
+  }
+}
+
+const updateUrgency = async () => {
+  var threeDay = 3*86400000; // how much is 3 day?
+  for (var i=0;i<userTasks.length;i++) {
+    if (Math.abs(Date.now() - userTasks[i].duetime*1000) < threeDay) {
+      userTasks[i].urgency = true;
+    } else {
+      userTasks[i].urgency = false;
+    }
+  }
+}
+
 const onLoad = async () => {
   await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
-  getUserTask();
+  await getUserTask();
+  await clearUndoableTask();
+  await updateUrgency();
 }
 
 const clearUndoableTask = async () => {
@@ -68,7 +167,9 @@ const getUserTask = async () => {
   foundUserTaskFromDB = false;
   await getUserTaskFromDB();
   if (foundUserTaskFromDB) {
-    userTasks = userTaskFromCV;
+    userTasks = userTaskFromDB;
+    await updateUserTaskWithCV();
+    await clearUndoableTask();
   } else {
     userTasks = [];
     await updateUserTaskWithCV();
@@ -164,12 +265,6 @@ const getUserProfile = async () => {
     .then((data) => {
       user = data.user;
       console.log(data.user);
-      document.getElementById(
-        "eng-name-info"
-      ).innerHTML = `${data.user.title_en} ${data.user.firstname_en} ${data.user.lastname_en}`;
-      document.getElementById(
-        "thai-name-info"
-      ).innerHTML = `${data.user.title_th} ${data.user.firstname_th} ${data.user.lastname_th}`;
     })
     .catch((error) => console.error(error));
 };
@@ -242,4 +337,4 @@ const logout = async () => {
   window.location.href = `http://${backendIPAddress}/courseville/logout`;
 };
 
-document.getElementById("group-id").innerHTML = getGroupNumber();
+// document.getElementById("group-id").innerHTML = getGroupNumber();

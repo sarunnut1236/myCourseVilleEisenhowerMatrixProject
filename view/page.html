@@ -1,54 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../controller/script.js"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="style-page.css" />
+    <meta charset = "UTF-8" />
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+    <script src = "script.js"></script>
+    <title>Eisenhower Matrix | MyCourseVille</title>
+    <link
+      rel = "shortcut icon"
+      href = "https://www.mycourseville.com/sites/all/modules/courseville/pict/favicon.ico"
+    />
+    <link rel = "stylesheet" href = "style-page.css"/>
   </head>
-  <body onload="onLoad()">
-    <div aria-hidden = "true">
-      <img
-        src = "https://www.mycourseville.com/sites/all/modules/courseville/files/logo/cv-logo.png"
-        aria-label = "Mycourseville"
-        title = "Mycourseville"
-        class = "center width75"
-        id = "mycourseville-logo"
-      />
-    </div>
-    <header>
+
+  <body onload = "onLoad()">
+    <div id = "introduction" class = "block center">
+      <div class = "center" aria-hidden = "true">
+        <center><img
+          src = "https://www.mycourseville.com/sites/all/modules/courseville/files/logo/cv-logo.png"
+          aria-label = "Mycourseville"
+          title = "Mycourseville"
+          class = "center"
+          id = "mycourseville-logo"
+        /></center>
+      </div>
+
       <div id="header-text">
-        <p id="main-header">Tasks Prioritization Chart</p>
+        <center><p id="main-header">Tasks Prioritization Chart</p></center>
         <p id="sub-header">powered by MyCourseVille</p>
       </div>
 
-      <div id="profile">
-        <img src="./src/profiletest.png" alt="profilepic" />
-        <p>Welcome! <span id="username"></span></p>
-        <p id="info">Faculty of Engineering Yr.1 Semester1</p>
+        <!--
+        <div id="profile">
+          <img src="./src/profiletest.png" alt="profilepic" />
+          <p>Welcome! <span id="username"></span></p>
+          <p id="info">Faculty of Engineering Yr.1 Semester1</p>
+
       </div>
-    </header>
+        -->
+
+      <div id = "profile" class = "center">
+        <img src = "./src/profiletest.png" alt = "profile-pic"/>
+        <div id = "metadata">
+          <h2>Welcome! <span id = "username"></span></h2>
+          <h2 id = "info" style = "display: grid;">Faculty of Engineering, Year 1, Semester 1</h2>
+          <button id="logout-button">log out</button>
+        </div>
+
+
+      </div>
+    </div>
+
     <div id="Eisenhower-Matrix">
       <p class="text-header" id="eisen-header">Eisenhower-Matrix</p>
       <div id="grid">
          <div class="boxtest" id="box1">
           <p id="label-urgent">Urgent</p>
-          <p >hello world</p>
+          <p class="box-data"></p>
 
           <p id="label-important">Important</p>
         </div>
         <div class="boxtest" id="box2">
-          <p>hello world</p>
+          <p class="box-data"></p>
           <p id="label-L-urgent">Less Urgent</p>
         </div>
          <div class="boxtest" id="box3">
-          <p>hello world</p>
+          <p class="box-data"></p>
           <p id="label-L-important">Less Important</p>
 
         </div>
-         <div class="boxtest" id="box4"><p>hello world</p></div>
+         <div class="boxtest" id="box4"><p class="box-data"></p></div>
       </div>
 
      </div>

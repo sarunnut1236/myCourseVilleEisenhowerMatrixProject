@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap");
 body {
   font-family: "Mitr", sans-serif;
-  margin: 0px;
-  padding: 0px;
   color: #030303;
 }
 
@@ -18,33 +16,47 @@ body {
   position: absolute;
   margin: 0px;
   padding: 0px;
-  right: 10px;
-  top: 2px;
+  right: 2.5%;
+  top: 5%;
 }
 #profile {
-  margin: 0px;
-  padding: 0px;
-  width: 800px;
-  height: 200px;
-  position: relative;
-  left: 350px;
-  top: 20px;
+  display: flow-root;
+  margin-top: 30px;
+  padding: 1%;
+  max-width: 75%;
   border: 1px solid black;
 }
-#profile p {
-  margin: 0px;
-  position: relative;
-  left: 33%;
-  top: 60px;
-  font-size: 20px;
+#profile h2 {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 2%;
+  font-size: medium;
   font-weight: lighter;
 }
 
 #profile img {
-  top: 20px;
-  left: 20px;
+  display: table-column;
+  max-width: 15%;
+  height: 5%;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#profile #metadata {
+  position: relative;
+}
+#profile button {
   position: absolute;
-  width: 150px;
+  bottom: -11px;
+
+  right: 0px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  background: white;
+  width: 70px;
+  cursor: pointer;
+  font-family: "Mitr", sans-serif;
 }
 
 #grid {
@@ -84,6 +96,9 @@ body {
 }
 #box4 {
   background-color: burlywood;
+}
+.box-data {
+  padding: 5px;
 }
 #label-urgent {
   font-size: 30px;
@@ -138,7 +153,7 @@ body {
   font-weight: lighter;
 }
 #tasks-to-add,
-#important-to-add {
+.important-to-add {
   font-family: "Mitr", sans-serif;
   padding: 5px 10px;
   border-radius: 8px;
@@ -185,8 +200,24 @@ body {
   font-weight: lighter;
   font-size: 20px;
 }
-#mycourseville-logo{
+#mycourseville-logo {
   margin-left: auto;
   margin-right: auto;
   max-width: 300px;
+}
+.inline-block {
+  display: inline-block;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+#introduction {
+  margin-top: 100px;
+}
+.block {
+  display: block;
+}
+.grid {
+  display: grid;
 }
