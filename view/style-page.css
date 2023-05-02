@@ -106,16 +106,16 @@ body {
 }
 
 #box1 {
-  background-color: rgb(247, 94, 94);
+  background-color: #F2C2C2;
 }
 #box2 {
-  background-color: rgb(182, 102, 102);
+  background-color: #F5E4DC;
 }
 #box3 {
-  background-color: tomato;
+  background-color: #C1DDD8;
 }
 #box4 {
-  background-color: burlywood;
+  background-color: #9EC4C5;
 }
 .box-data {
   padding-left: 7px;
@@ -231,6 +231,10 @@ body {
   }
   .label {
     font-size: 2.2vh;
+    text-align: center;
+  }
+  #label-urgent{
+    font-size: 2.2VW;
     text-align: center;
   }
   .box-data {
