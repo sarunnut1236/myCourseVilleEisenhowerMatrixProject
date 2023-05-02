@@ -3,6 +3,7 @@ body {
   font-family: "Mitr", sans-serif;
   color: #030303;
   padding: 0px;
+  padding: 0px;
 }
 
 #main-header {
@@ -74,7 +75,7 @@ body {
   grid-template-columns: repeat(2, 0fr);
   grid-template-rows: repeat(3, 0fr);
   gap: 3%;
-  text-align: center;
+  text-align: left;
   /* background-color: #555; */
 }
 #eisen-header {
@@ -88,43 +89,20 @@ body {
   margin-right: auto;
   padding: 0;
   border-radius: 10%;
-  height: 40vh;
-  width: 40vh;
-  display: flex;
-  align-items: center;
-}
-.label-horizon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  /* transform: rotate(-90deg); */
-  white-space: nowrap;
-  margin: 0px;
-  background-color: rebeccapurple;
-}
-.label-vertical {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  /* transform: rotate(-90deg); */
-  white-space: nowrap;
-  margin-left: 195px;
-  background-color: royalblue;
+  height: 45vh;
+  width: 55vh;
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 #matrix-container {
   display: grid;
-  position: relative;
+  /* position: relative; */
   justify-content: center;
 }
-#label-left {
-  position: absolute;
-  display: flex;
-  top: 435px;
-  left: 65px;
-  transform: rotate(270deg);
+.label {
+  font-size: 3vh;
+  text-align: center;
 }
 
 #box1 {
@@ -140,7 +118,14 @@ body {
   background-color: burlywood;
 }
 .box-data {
-  padding: 5px;
+  padding-left: 7px;
+  align-self: flex-start;
+  display: block;
+  width: 52vh;
+  word-wrap: break-word;
+  font-size: 2.2vh;
+  font-weight: 350;
+  margin: 5px;
 }
 
 #main-table {
@@ -234,7 +219,7 @@ body {
   display: block;
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   #Eisenhower-Matrix .boxtest {
     position: relative;
     margin: 0px;
@@ -243,17 +228,21 @@ body {
     height: 40vw;
     width: 40vw;
   }
-  #main-header {
-    font-size: 6vw;
+  .label {
+    font-size: 2.2vh;
     text-align: center;
-    margin: 0px;
-    padding: 0px;
   }
-  .text-header {
-    font-size: 6vw;
+  .box-data {
+    padding-left: 3px;
+    align-self: flex-start;
+    display: block;
+    width: 30vh;
+    word-wrap: break-word;
+    font-size: 1.8vh;
+    font-weight: 350;
+    margin: 5px;
   }
-
-} */
+}
 
 hr {
   color: #030303;
