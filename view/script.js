@@ -112,6 +112,8 @@ const updateUrgency = async () => {
 const onLoad = async () => {
   await getUserProfile();
   document.getElementById("username").innerHTML = `${user.firstname_en} ${user.lastname_en}`;
+  document.getElementById("username_th").innerHTML = `${user.firstname_th} ${user.lastname_th}`;
+  document.getElementById("student_id").innerHTML = `${user.id}`;
   await getUserTask();
   await clearUndoableTask();
   await updateUrgency();
@@ -144,6 +146,7 @@ const addUserTaskToDB = async () => {
   await fetch(`http://${backendIPAddress}/items/addUserTasks`, options)
     .then((response) => response.json())
     .catch((error) => console.error(error));
+  console.log("added to database");
 }
 
 const updateUserTaskWithCV = async () => {
