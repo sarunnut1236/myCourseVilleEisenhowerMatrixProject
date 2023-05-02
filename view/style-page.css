@@ -62,27 +62,32 @@ body {
   cursor: pointer;
   font-family: "Mitr", sans-serif;
 }
+
 #grid {
-  margin-top: 30px;
-  padding: 200;
+  margin: 80px auto;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 0fr);
-  grid-template-rows: repeat(2, 0fr);
-  gap: 5%;
-  text-align: center;
+  grid-template-columns: 300px 300px;
+  row-gap: 0px;
+  column-gap: 9px;
+  width: 80%;
+  height: 80%;
+  max-width: 610px;
+  max-height: 610px;
+  justify-content: center;
+  /* border: 2px solid black; */
 }
 #eisen-header {
   margin-top: 15%;
   margin-bottom: 0;
 }
 #Eisenhower-Matrix .boxtest {
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  margin: 0px;
   padding: 0;
-  border-radius: 10%;
+  border-radius: 8px;
   height: 40VH;
   width: 40VH;
-  justify-content: center;
 }
 #box1 {
   background-color: rgb(247, 94, 94);
@@ -179,26 +184,22 @@ body {
 }
 
 #app-container {
-  display: block;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
   justify-content: space-evenly;
 }
 
 #about-us ul {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 7%;
-  padding-right: 2%;
+  padding-left: 40px;
+  padding-right: 10px;
+  padding-top: 20px;
   border: 1px solid black;
-  width: 75VW;
-  max-width: 500px;
-  height: fit-content;
+  border-radius: 5px;
+  width: 500px;
+  height: 300px;
 }
 #about-us li {
   font-weight: lighter;
-  font-size: 100%;
+  font-size: 20px;
 }
 #mycourseville-logo {
   margin-left: auto;
@@ -239,8 +240,4 @@ body {
   .text-header {
     font-size: 6VW;
   }
-}
-hr {
-  color: #030303;
-  margin-top: 5%;
 }
