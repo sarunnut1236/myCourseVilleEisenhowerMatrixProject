@@ -74,18 +74,18 @@ function showTasks() {
       //สำคัญ
       if (urgent) {
         console.log(1);
-        topLeft.innerHTML += `<p class="box-data">${userTasks[i].title}</p>`
+        topLeft.innerHTML += `<p class="box-data"> - ${userTasks[i].title}</p>`
       } else {
         console.log(2);
-        topRight.innerHTML += `<p class="box-data">${userTasks[i].title}</p>`
+        topRight.innerHTML += `<p class="box-data"> - ${userTasks[i].title}</p>`
       }
     } else {
       if (urgent) {
         console.log(3);
-        botLeft.innerHTML += `<p class="box-data">${userTasks[i].title}</p>`
+        botLeft.innerHTML += `<p class="box-data"> - ${userTasks[i].title}</p>`
       } else {
         console.log(4);
-        botRight.innerHTML += `<p class="box-data">${userTasks[i].title}</p>`
+        botRight.innerHTML += `<p class="box-data"> - ${userTasks[i].title}</p>`
       }
     }
   }
