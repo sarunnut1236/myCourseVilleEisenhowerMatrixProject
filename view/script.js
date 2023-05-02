@@ -201,6 +201,7 @@ const getUserTaskFromDB = async () => {
       }
     },)
     .catch((error) => console.error(error));
+    
 }
 
 const getUserTaskFromCV = async() => {
