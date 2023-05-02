@@ -2,10 +2,11 @@
 body {
   font-family: "Mitr", sans-serif;
   color: #030303;
+  padding: 0px;
 }
 
 #main-header {
-  font-size: 6VH;
+  font-size: 6vh;
   text-align: center;
   margin: 0px;
   padding: 0px;
@@ -20,7 +21,6 @@ body {
   top: 5%;
 }
 @media screen {
-  
 }
 #profile {
   display: flow-root;
@@ -39,7 +39,7 @@ body {
 
 #profile img {
   display: block;
-  max-width: 30VW;
+  max-width: 30vw;
   height: 5%;
   margin-top: auto;
   margin-bottom: auto;
@@ -62,33 +62,71 @@ body {
   cursor: pointer;
   font-family: "Mitr", sans-serif;
 }
-
+#Eisenhower-Matrix {
+  display: grid;
+  position: relative;
+  /* justify-content: center; */
+}
 #grid {
-  margin: 80px auto;
+  /* margin-top: 30px; */
   padding: 0;
   display: grid;
-  grid-template-columns: 300px 300px;
-  row-gap: 0px;
-  column-gap: 9px;
-  width: 80%;
-  height: 80%;
-  max-width: 610px;
-  max-height: 610px;
-  justify-content: center;
-  /* border: 2px solid black; */
+  grid-template-columns: repeat(2, 0fr);
+  grid-template-rows: repeat(3, 0fr);
+  gap: 3%;
+  text-align: center;
+  /* background-color: #555; */
 }
 #eisen-header {
-  margin-top: 15%;
-  margin-bottom: 0;
+  justify-self: center;
+  margin-top: 5%;
+  margin-bottom: 80px;
 }
 #Eisenhower-Matrix .boxtest {
   position: relative;
-  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
-  border-radius: 8px;
-  height: 40VH;
-  width: 40VH;
+  border-radius: 10%;
+  height: 40vh;
+  width: 40vh;
+  display: flex;
+  align-items: center;
 }
+.label-horizon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  /* transform: rotate(-90deg); */
+  white-space: nowrap;
+  margin: 0px;
+  background-color: rebeccapurple;
+}
+.label-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  /* transform: rotate(-90deg); */
+  white-space: nowrap;
+  margin-left: 195px;
+  background-color: royalblue;
+}
+
+#matrix-container {
+  display: grid;
+  position: relative;
+  justify-content: center;
+}
+#label-left {
+  position: absolute;
+  display: flex;
+  top: 435px;
+  left: 65px;
+  transform: rotate(270deg);
+}
+
 #box1 {
   background-color: rgb(247, 94, 94);
 }
@@ -104,36 +142,7 @@ body {
 .box-data {
   padding: 5px;
 }
-#label-urgent {
-  font-size: 30px;
-  position: absolute;
-  top: -80px;
-  left: 95px;
-  color: rgb(76, 77, 77);
-}
-#label-L-urgent {
-  font-size: 30px;
-  position: absolute;
-  top: -80px;
-  left: 65px;
-  color: rgb(76, 77, 77);
-}
-#label-important {
-  font-size: 30px;
-  transform: rotate(270deg);
-  position: absolute;
-  top: 90px;
-  left: -105px;
-  color: rgb(76, 77, 77);
-}
-#label-L-important {
-  font-size: 30px;
-  transform: rotate(270deg);
-  position: absolute;
-  top: 90px;
-  left: -142px;
-  color: rgb(76, 77, 77);
-}
+
 #main-table {
   padding: 0;
   width: 100%;
@@ -180,26 +189,30 @@ body {
   color: white;
 }
 .text-header {
-  font-size: 6VH;
+  font-size: 6vh;
 }
 
 #app-container {
-  display: flex;
+  display: block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: space-evenly;
 }
 
 #about-us ul {
-  padding-left: 40px;
-  padding-right: 10px;
-  padding-top: 20px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 7%;
+  padding-right: 2%;
   border: 1px solid black;
-  border-radius: 5px;
-  width: 500px;
-  height: 300px;
+  width: 75vw;
+  max-width: 500px;
+  height: fit-content;
 }
 #about-us li {
   font-weight: lighter;
-  font-size: 20px;
+  font-size: 100%;
 }
 #mycourseville-logo {
   margin-left: auto;
@@ -212,6 +225,7 @@ body {
 .center {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
 }
 #introduction {
   margin-top: 100px;
@@ -219,25 +233,29 @@ body {
 .block {
   display: block;
 }
-.grid {
-  display: grid;
-}
-@media (max-width: 600px) {
+
+/* @media (max-width: 600px) {
   #Eisenhower-Matrix .boxtest {
     position: relative;
     margin: 0px;
     padding: 0;
     border-radius: 10%;
-    height: 40VW;
-    width: 40VW;
+    height: 40vw;
+    width: 40vw;
   }
   #main-header {
-    font-size: 6VW;
+    font-size: 6vw;
     text-align: center;
     margin: 0px;
     padding: 0px;
   }
   .text-header {
-    font-size: 6VW;
+    font-size: 6vw;
   }
+
+} */
+
+hr {
+  color: #030303;
+  margin-top: 5%;
 }
