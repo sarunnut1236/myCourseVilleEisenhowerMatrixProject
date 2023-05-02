@@ -55,20 +55,13 @@ function showTasks() {
   var botLeft = document.getElementById("box3");
   var botRight = document.getElementById("box4");
 
-  topLeft.innerHTML = `
-    <p id="label-urgent">Urgent</p>
-    <p id="label-important">Important</p>
-  `;
+  topLeft.innerHTML = "";
 
-  topRight.innerHTML = `
-    <p id="label-L-urgent">Less Urgent</p>
-  `;
+  topRight.innerHTML = "";
 
-  botLeft.innerHTML = `
-    <p id="label-L-important">Less Important</p>
-  `;
+  botLeft.innerHTML = "";
 
-  botRight.innerHTML = ``;
+  botRight.innerHTML = "";
 
   for (var i=0;i<userTasks.length;i++) {
     var importance = userTasks[i].importance;
