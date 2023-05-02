@@ -151,7 +151,7 @@ body {
   font-weight: lighter;
 }
 #tasks-to-add,
-.important-to-add {
+#important-to-add {
   font-family: "Mitr", sans-serif;
   padding: 5px 10px;
   border-radius: 8px;
@@ -191,6 +191,7 @@ body {
   padding-left: 7%;
   padding-right: 2%;
   border: 1px solid black;
+  border-radius: 5px;
   width: 75vw;
   max-width: 500px;
   height: fit-content;
@@ -241,6 +242,14 @@ body {
     font-size: 1.8vh;
     font-weight: 350;
     margin: 5px;
+  }
+  .text-header {
+    font-size: 4vh;
+  }
+  #eisen-header {
+    justify-self: center;
+    margin-top: 5%;
+    margin-bottom: 35px;
   }
 }
 
