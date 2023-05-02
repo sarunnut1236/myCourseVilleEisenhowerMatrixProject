@@ -336,6 +336,7 @@ const createCompEngEssAssignmentTable = async () => {
 };
 
 const logout = async () => {
+  await addUserTaskToDB();
   window.location.href = `http://${backendIPAddress}/courseville/logout`;
 };
 
