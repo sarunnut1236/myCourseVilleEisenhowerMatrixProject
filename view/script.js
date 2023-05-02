@@ -269,8 +269,8 @@ const getUserProfile = async () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      user = data.student;
-      document.getElementById("profile_pic").setAttribute("src", `${data.account.profile_pict}`);
+      user = data.data.student;
+      document.getElementById("profile_pic").setAttribute("src", `${data.data.account.profile_pict}`);
     })
     .catch((error) => console.error(error));
 };
