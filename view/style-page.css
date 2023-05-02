@@ -151,7 +151,7 @@ body {
   font-weight: lighter;
 }
 #tasks-to-add,
-#important-to-add {
+.important-to-add {
   font-family: "Mitr", sans-serif;
   padding: 5px 10px;
   border-radius: 8px;
