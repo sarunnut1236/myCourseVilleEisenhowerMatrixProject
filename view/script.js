@@ -55,13 +55,13 @@ function showTasks() {
   var botLeft = document.getElementById("box3");
   var botRight = document.getElementById("box4");
 
-  topLeft.innerHTML = "";
+  topLeft.innerHTML = '<h1 class="label" id="label-urgent">Urgent&Important</h1>';
 
-  topRight.innerHTML = "";
+  topRight.innerHTML = '<h1 class="label" id="label-urgent">LessUrgent&Important</h1>';
 
-  botLeft.innerHTML = "";
+  botLeft.innerHTML = '<h1 class="label" id="label-urgent">Urgent&LessImportant</h1>';
 
-  botRight.innerHTML = "";
+  botRight.innerHTML = '<h1 class="label" id="label-urgent">LessUrgent&LessImportant</h1>';
 
   for (var i=0;i<userTasks.length;i++) {
     var importance = userTasks[i].importance;
