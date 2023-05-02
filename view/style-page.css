@@ -257,9 +257,10 @@ body {
   }
   .box-data {
     padding-left: 7px;
+    padding-right: 3px;
     align-self: flex-start;
     display: block;
-    width: 52vw;
+    width: 35vw;
     word-wrap: break-word;
     font-size: 2.2vw;
     font-weight: 350;
