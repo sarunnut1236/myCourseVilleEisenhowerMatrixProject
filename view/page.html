@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <title>Eisenhower Matrix | MyCourseVille</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.mycourseville.com/sites/all/modules/courseville/pict/favicon.ico"
+    />
+    <link rel="stylesheet" href="style-page.css" />
+  </head>
+
+  <body onload="onLoad()">
+    <div id="introduction" class="block center">
+      <div class="center" aria-hidden="true">
+        <center>
+          <img
+            src="https://www.mycourseville.com/sites/all/modules/courseville/files/logo/cv-logo.png"
+            aria-label="Mycourseville"
+            title="Mycourseville"
+            class="center"
+            id="mycourseville-logo"
+          />
+        </center>
+      </div>
+
+      <div id="header-text">
+        <center><p id="main-header">Tasks Prioritization Chart</p></center>
+        <p id="sub-header">powered by myCourseVille</p>
+      </div>
+
+      <!--
+        <div id="profile">
+          <img src="./src/profiletest.png" alt="profilepic" />
+          <p>Welcome! <span id="username"></span></p>
+          <p id="info">Faculty of Engineering Yr.1 Semester1</p>
+
+      </div>
+        -->
+
+      <div id="profile" class="center">
+        <div class="container mt-5 d-flex justify-content-center">
+          <div class="card p-3">
+            <div class="d-flex align-items-center">
+              <div class="image">
+                <center>
+                  <img
+                    src=".\src\profiletest.png"
+                    class="rounded"
+                    width="155"
+                    id="profile_pic"
+                  />
+                </center>
+              </div>
+              <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">
+                  <span id="username">Sarunpong Lapsuksathit</span>
+                </h4>
+                <span id="username_th">ศรัณย์พงศ์ ลาภสุขสถิต</span>
+                <div
+                  class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats"
+                >
+                  <div class="d-flex flex-column">
+                    <span id="student_id">6432163521</span>
+                    <button id="logout-button" onclick="logout()">
+                      log out
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Eisenhower-Matrix">
+      <p class="text-header" id="eisen-header">Eisenhower-Matrix</p>
+
+      <div id="matrix-container">
+        <div id="grid">
+          <!-- <div class='label-horizon' id="label-important">Less Urgent</div> -->
+
+          <div class="boxtest" id="box1">
+            <h1 class="label" id="label-urgent">Urgent & Important</h1>
+            <p class="box-data"></p>
+          </div>
+          <div class="boxtest" id="box2">
+            <h1 class="label" id="label-urgent">Less Urgent & Important</h1>
+            <p class="box-data"></p>
+          </div>
+          <div class="boxtest" id="box3">
+            <h1 class="label" id="label-urgent">Urgent & Less Important</h1>
+            <p class="box-data"></p>
+          </div>
+          <div class="boxtest" id="box4">
+            <h1 class="label" id="label-urgent">
+              Less Urgent & Less Important
+            </h1>
+            <p class="box-data"></p>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="app-container">
+      <div id="tasks">
+        <p class="text-header">Tasks</p>
+        <table id="main-table">
+          <thead>
+            <tr>
+              <th>ชื่อ tasks</th>
+              <th>ความสำคัญ</th>
+              <th>ดำเนินการ</th>
+            </tr>
+          </thead>
+
+          <tr>
+            <td>-</td>
+            <td>
+              <select name="select-important" class="important-to-add">
+                <option value="0"></option>
+                <option value="1">สำคัญ</option>
+                <option value="2">ไม่สำคัญ</option>
+              </select>
+            </td>
+
+            <td><button class="delete-row">อัปเดต</button></td>
+          </tr>
+        </table>
+      </div>
+      <hr />
+      <div id="about-us">
+        <p class="text-header">About us</p>
+        <ul>
+          <li>
+            เว็บนี้เป็นส่วนหนึ่งของ project วิชา Computer Engineering Essentials
+          </li>
+          <li>"เร่งด่วน" หมายถึงงานที่ต้องส่งภายใน 3 วัน</li>
+          <li>
+            Task ที่ผู้ใช้ยังไม่ระบุความสำคัญจะยังไม่แสดงบน Eisenhower Matrix
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
